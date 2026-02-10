@@ -13,7 +13,7 @@
 void draw_text_in_box(float x, float y, float width, float height, const char* content) {
     constexpr float MARGIN = 2.0;
 
-    int length = strlen(content);
+    int length = int(strlen(content));
     //TODO(Wassim): implement proper stack allocation
     //char new_content[length + 4];
     char new_content[4096];
@@ -28,7 +28,7 @@ void draw_text_in_box(float x, float y, float width, float height, const char* c
 void draw_centered_text_in_box(float x, float y, float width, float height, const char* content) {
     constexpr float MARGIN = 2.0;
 
-    int length = strlen(content);
+    int length = int(strlen(content));
     //TODO(Wassim): implement proper stack allocation
     //char new_content[length + 4];
     char new_content[4096];

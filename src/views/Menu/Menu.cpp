@@ -49,7 +49,7 @@ Menu& Menu::process_user_input(Action* action) {
     int active_menu_index = -1;
     int active_item_index = -1;
     {
-        for (int i = num_opened_menus - 1; i >= 0; --i) {
+        for (int i = int(num_opened_menus) - 1; i >= 0; --i) {
             auto& opened_menu = state.opened_menu_stack[i];
 
             const auto& bounds = opened_menu.bounding_rect;
@@ -115,11 +115,11 @@ Menu& Menu::process_user_input(Action* action) {
     // From here on forward, active_menu_index will not be -1 for no hovers, we will pick
     // a sub menu to be active
     if (active_menu_index == -1) {
-        active_menu_index = num_opened_menus - 1;
+        active_menu_index = int(num_opened_menus) - 1;
     }
 
     // We definitely want to close all menus that are grand-children of the selected menu
-    for (int i = num_opened_menus - 1; i > active_menu_index + 1; --i) {
+    for (int i = int(num_opened_menus) - 1; i > active_menu_index + 1; --i) {
         state.opened_menu_stack.pop_back();
         --num_opened_menus;
     }
@@ -158,7 +158,7 @@ Menu& Menu::process_user_input(Action* action) {
         Anchor a, b;
         parent_menu.view_state->get_item_anchors(
             state.menus[sub_menu.menu_index],
-            num_opened_menus - 1,
+            int(num_opened_menus) - 1,
             parent_menu.bounding_rect,
             active_item_index,
             &a,
@@ -172,7 +172,7 @@ Menu& Menu::process_user_input(Action* action) {
             std::swap(a, b);
         }
 
-        lay_out_menu(a, b, num_opened_menus - 1);
+        lay_out_menu(a, b, int(num_opened_menus) - 1);
     }
 
     action->type = NO_ACTION;

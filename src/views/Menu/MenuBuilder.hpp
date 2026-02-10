@@ -55,7 +55,7 @@ private:
 };
 
 MenuBuilder::Menu::Menu(MenuBuilder& builder) : builder(builder) {
-    menu_index = builder.state.menus.size();
+    menu_index = int(builder.state.menus.size());
     builder.state.menus.push_back(::Menu::SubMenuState());
     auto& sub_menu = builder.state.menus.back();
     sub_menu.construct_view_state = DefaultMenuView::construct;
@@ -103,7 +103,7 @@ MenuBuilder::Menu& MenuBuilder::Menu::action(int action_id) {
     auto& menu = builder.state.menus[menu_index];
     auto& item = menu.items.back();
     builder.state.action_ids.push_back(action_id);
-    item.action_index = builder.state.action_ids.size();
+    item.action_index = int(builder.state.action_ids.size());
     return *this;
 }
 
@@ -111,7 +111,7 @@ MenuBuilder::Menu& MenuBuilder::Menu::action(std::function<void()> action_callba
     auto& menu = builder.state.menus[menu_index];
     auto& item = menu.items.back();
     builder.state.action_callbacks.push_back(std::move(action_callback));
-    item.action_index = - builder.state.action_callbacks.size();
+    item.action_index = - int(builder.state.action_callbacks.size());
     return *this;
 }
 

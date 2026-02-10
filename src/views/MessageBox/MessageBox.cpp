@@ -72,7 +72,7 @@ void update_content(MessageBoxState* state) {
     auto x = view.width - PADDING;
     y = view.height - PADDING;
 
-    for (int i = state->button_set.size() - 1; i >= 0; --i) {
+    for (int i = int(state->button_set.size()) - 1; i >= 0; --i) {
         void* id = &state->button_set[i];
         if (draw_button(id, y, &x, state->button_set[i].c_str(), false)) {
             close(state);

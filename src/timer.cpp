@@ -83,7 +83,7 @@ void run_thread() {
         }
 
         // Erase timeouts
-        for (int i = timers.size() - 1; i >= 0; --i) {
+        for (int i = int(timers.size()) - 1; i >= 0; --i) {
             if (timers[i].erase) {
                 timers.erase(timers.begin() + i);
             }

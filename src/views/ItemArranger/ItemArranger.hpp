@@ -31,7 +31,7 @@ class BasicModel : public Model {
         std::vector<bool> enabled;
 
         int count() {
-            return names.size();
+            return int(names.size());
         }
         std::string label(int index) {
             return names[ordering[index]];

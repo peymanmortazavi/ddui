@@ -57,7 +57,7 @@ void PasswordTextBox::draw_content() {
     float x = 0.5 * dot_bounding_width + styles->margin;
     float y = 0.5 * dot_bounding_height + styles->margin;
 
-    int num_dots = model.lines.front().characters.size();
+    int num_dots = int(model.lines.front().characters.size());
 
     ddui::fill_color(model.lines.front().style.text_color);
     for (int i = 0; i < num_dots; ++i) {

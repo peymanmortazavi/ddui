@@ -73,8 +73,8 @@ void PlainTextBox::update() {
             selection.a_index == selection.b_index) {
             selection.a_line = 0;
             selection.a_index = 0;
-            selection.b_line = model.lines.size() - 1;
-            selection.b_index = model.lines.back().characters.size();
+            selection.b_line = int(model.lines.size()) - 1;
+            selection.b_index = int(model.lines.back().characters.size());
             model.version_count++;
         }
     }

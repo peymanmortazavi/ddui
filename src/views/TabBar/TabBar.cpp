@@ -383,7 +383,7 @@ int TabBar::tab_drag_target_position() {
     if (mx < 1) {
         return 0;
     } else {
-        return state.tab_names.size() - 1;
+        return int(state.tab_names.size()) - 1;
     }
 }
 
@@ -442,7 +442,7 @@ int TabBar::find_removal(const std::vector<std::string>& a, const std::vector<st
         }
     }
 
-    return b.size();
+    return int(b.size());
 }
 
 void TabBar::render_button(float x, float width, const char* name, bool hovering, bool active) {

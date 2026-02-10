@@ -183,8 +183,8 @@ void locate_selection_point(const Measurements* measurements, float x, float y, 
     }
 
     if (y >= lines.back().y + lines.back().height) {
-        *lineno = lines.size() - 1;
-        *index = lines.back().characters.size();
+        *lineno = int(lines.size()) - 1;
+        *index = int(lines.back().characters.size());
         return;
     }
 
@@ -208,7 +208,7 @@ void locate_selection_point(const Measurements* measurements, float x, float y, 
         prev_max_x = line.characters[i].max_x;
     }
 
-    *index = line.characters.size();
+    *index = int(line.characters.size());
 }
 
 }

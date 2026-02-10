@@ -191,7 +191,7 @@ void input_file_drop(int count, const char** paths) {
     event.count = count;
     event.paths = (const char**)malloc(sizeof(const char*) * count); // WARNING: leaking memory
     for (int i = 0; i < count; ++i) {
-        int len = std::strlen(paths[i]);
+        int len = int(std::strlen(paths[i]));
         char* copy = (char*)malloc(sizeof(char) * (len + 1));
         std::strcpy(copy, paths[i]);
         event.paths[i] = copy;

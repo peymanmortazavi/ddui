@@ -106,7 +106,7 @@ void update_animation() {
     last_update_time = std::chrono::high_resolution_clock::now();
 
     // Remove inactive animations
-    for (int i = active_animations.size() - 1; i >= 0; --i) {
+    for (int i = int(active_animations.size()) - 1; i >= 0; --i) {
         if (!active_animations[i].touched) {
             active_animations.erase(active_animations.begin() + i);
         }

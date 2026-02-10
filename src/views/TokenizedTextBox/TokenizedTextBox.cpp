@@ -114,7 +114,7 @@ void TokenizedTextBox::extract_tokens(const Model* model, const char* separator,
     auto& list = *out;
     list.clear();
 
-    const int sep_len = std::strlen(separator);
+    const int sep_len = int(std::strlen(separator));
 
     for (const auto& line : model->lines) {
         for (const auto& ch : line.characters) {
@@ -308,7 +308,7 @@ void TokenizedTextBox::get_user_input_selection(TextEdit::Selection* selection) 
 }
 
 void TokenizedTextBox::tokenize_content() {
-    const int separator_len = std::strlen(separator);
+    const int separator_len = int(std::strlen(separator));
 
     for (int lineno = 0; lineno < model.lines.size(); ++lineno) {
         auto& line = model.lines[lineno];
@@ -316,7 +316,7 @@ void TokenizedTextBox::tokenize_content() {
         while (true) {
             const char* content = line.content.get();
             const auto& chrs = line.characters;
-            const int numchars = chrs.size();
+            const int numchars = int(chrs.size());
 
             // Find first non-entity character
             for (; index < numchars && chrs[index].entity_id != -1; ++index) {}
