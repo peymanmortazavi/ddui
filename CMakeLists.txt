@@ -18,7 +18,7 @@ if(NOT DEFINED ddui_BACKEND)
     elseif(WIN32)
         set(ddui_BACKEND "D3D11")
     else()
-        set(ddui_BACKEND "GLES3")
+        set(ddui_BACKEND "GL3")
     endif()
 endif()
 

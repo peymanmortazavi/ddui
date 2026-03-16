@@ -9,6 +9,8 @@
 #ifndef ddui_core_hpp
 #define ddui_core_hpp
 
+#include <cstdlib>
+#include <cstdio>
 #include <functional>
 #include <chrono>
 #include "glfw.hpp"

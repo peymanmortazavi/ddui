@@ -180,7 +180,7 @@ extern "C" {
   #endif /*GLFW_INCLUDE_GLEXT*/
 
  #else /*__APPLE__*/
-
+  #include <KHR/khrplatform.h>
   #include <GL/glcorearb.h>
 
  #endif /*__APPLE__*/
